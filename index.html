@@ -1,10 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Best Game Ever!</title>
-  </head>
-  <body>
-    <script src="game.js"></script>
-  </body>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flappy Bird Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
+  <link rel="stylesheet" crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" />
+  <link rel="stylesheet" crossorigin="anonymous"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" />
+  <link href='style/style.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class='row section'>
+    <div class='col-md-7 dn-card-box'>
+      <h1>Welcome to Flappy Bird!</h1>
+      <p>I'm glad you here to play Flappy Bird!</p>
+      <p>If you never play Flappy Bird before, below are several pieces of information you need to remember</p>
+      <ul class='dn-infor'>
+        <li>You can either use mouse click or Enter key to play.</li>
+        <li>Need to constantly click on the Canvas or press Enter to keep the bird flying.</li>
+        <li>Use your skills to help the bird avoid hitting the pipes. The more pipes it goes through, the higher score you
+          will have.</li>
+        <li>The score will be constantly updated in the table below once you finished a game.
+        </li>
+        <li>You should click submit the form below before starting the game so that it can save all your information</li>
+      </ul>
+      <p>That's all. Now play and happy fun!</p>
+
+      <div class='form-check'>
+        <div>
+          <label>Enter name:</label>
+          <input class='dn-name' placeholder='John Bell' id='dn-name-' type='text' required>
+        </div>
+        <div class='dn-form-comp'>
+          <select name='level' id='level' required>
+            <option value='level1'>Level 1</option>
+            <option value='level2'>Level 2</option>
+            <option value='level3'>Level 3</option>
+          </select>
+        </div class='dn-form-comp'>
+        <button class='btn btn-primary btn-sm btn-outline-dark' id='dn-submit' style='margin: 10px 10px'>Submit</button>
+        <span id='dn-information'>Please submit your information...</span>
+      </div>
+
+      <div class='dn-table-wrapper'>
+        <table class="table table-hover dn-table table-sm scrollTable" id='myTable' border="0" cellpadding="0" cellspacing="0" width="100%">
+          <thead class="fixedHeader">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Level</th>
+              <th scope="col">Time</th>
+              <th scope="col">Score</th>
+            </tr>
+          </thead>
+          <tbody class="scrollContent">
+            <tr>
+              <td>Mark</td>
+              <td>1</td>
+              <td>30</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class='col-md-5 dn-game-box'>
+      <canvas id="bird" width="350" height="550"></canvas>
+    </div>
+  </div>
+
+  <script src="script/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
 </html>

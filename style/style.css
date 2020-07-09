@@ -1,0 +1,63 @@
+.section{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/flappy-bird-background.png');
+  padding: 0px;
+  margin: 0px;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  border: 5px solid black;
+}
+
+.dn-game-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dn-card-box{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dn-infor{
+  width: 80%;
+}
+
+.dn-radio-label{
+  margin: 0px 10px;
+}
+
+.form-check{
+  width: 70%;
+}
+
+.dn-form-comp{
+  margin: 10px 0px;
+}
+
+.dn-table tbody{
+  display: block;
+  height: 100px;
+  overflow-y: scroll;
+}
+
+.dn-table tr{
+  width:100%;
+  display: flex;
+}
+
+.dn-table td, .dn-table th{
+  flex-basis:100%;
+  display: block;
+  text-align:left;
+}
+
+.dn-table-wrapper{
+  width: 70%;
+}
