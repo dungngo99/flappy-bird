@@ -265,9 +265,16 @@ const bird = {
       this.speed += this.gravity;
       this.y += this.speed;
 
-      if (this.y + this.h / 2 >= cvs.height - fg.h) {
+      // If the bird hits the ceiling (min -450) or the floor (height of foreground), game over
+      if ((this.y + this.h / 2 >= cvs.height - fg.h) || (this.y + this.h / 2 <= -450)) {
         state.current = state.over;
         Die.play();
+
+        //Reset variables
+        record['time'] = Math.floor((Date.now() - start_time) / 1000);
+        is_on = false;
+        start_time = 0;
+        updateTable();
       }
 
       // If the speed is greater than the jumps, means the bird is falling down (rotaion is positive)
