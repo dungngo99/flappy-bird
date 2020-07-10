@@ -66,6 +66,7 @@ cvs.addEventListener("click", function (evt) {
         pipes.reset();
         bird.speedReset();
         score.reset();
+        document.getElementById('dn-information').innerHTML = 'Please submit your information...'
       }
       break;
   }
@@ -96,6 +97,7 @@ window.addEventListener("keydown", function (evt) {
       pipes.reset();
       bird.speedReset();
       score.reset();
+      document.getElementById('dn-information').innerHTML = 'Please submit your information...'
       break;
   }
 });
@@ -402,7 +404,7 @@ const pipes = {
         Die.play();
 
         //Reset variables
-        record['time'] = Math.floor((Date.now() - start_time)/1000);
+        record['time'] = Math.floor((Date.now() - start_time) / 1000);
         is_on = false;
         start_time = 0;
         updateTable();
@@ -455,9 +457,51 @@ const score = {
       ctx.strokeText(this.best, 225, 238);
     }
   },
+
   reset: function () {
     this.value = 0;
+  },
+
+  isBest: function () {
+    let best = localStorage.getItem('best') || 0;
+    //console.log(`${best} ${score.value}`)
+    if (score.value >= best) {
+      document.getElementById('dn-information').innerHTML = document.getElementById('dn-information').innerHTML + ' You got the best score. Awesome!'
+    }
   }
+}
+
+//MEDALS: Display when user finished the game
+const medals = {
+  sX: [317, 362, 317, 362],
+  sY: [112, 112, 158, 158],
+  w: 41,
+  h: 41,
+  dX: 90,
+  dY: 180,
+
+  draw: function () {
+    if (state.current == state.over) {
+      if (score.value <= 5) {
+        ctx.drawImage(sprite, this.sX[0], this.sY[0], this.w, this.h, this.dX, this.dY, this.w, this.h);
+        document.getElementById('dn-information').innerHTML = 'You got Stone medal';
+        //console.log(0)
+      }else if (score.value <= 10){
+        ctx.drawImage(sprite, this.sX[1], this.sY[1], this.w, this.h, this.dX, this.dY, this.w, this.h);
+        document.getElementById('dn-information').innerHTML = 'You got Bronze medal';
+        //console.log(1)
+      }else if (score.value <= 15){
+        ctx.drawImage(sprite, this.sX[2], this.sY[2], this.w, this.h, this.dX, this.dY, this.w, this.h);
+        document.getElementById('dn-information').innerHTML = 'You got Silver medal'
+        //console.log(2)
+      }else{
+        ctx.drawImage(sprite, this.sX[3], this.sY[3], this.w, this.h, this.dX, this.dY, this.w, this.h);
+        document.getElementById('dn-information').innerHTML = 'You got Gold medal'
+      }
+      //console.log('v;evnlw')
+      score.isBest();
+    }
+  },
 }
 
 // DRAW: Move an image from sprite.png to destination, canvas
@@ -472,6 +516,7 @@ function draw() {
   getReady.draw(); // draw getReady box
   getMessage.draw(); // draw getMessage box
   score.draw(); // draw score box
+  medals.draw(); // draw the stone medal
 }
 
 // UPDATE THE GAME
@@ -489,7 +534,6 @@ function loop() {
   frame++;
   requestAnimationFrame(loop); // take call back function - loop function call 50 times per second
 }
-loop()
 
 function updateTable() {
   let table = document.getElementById('myTable');
@@ -515,6 +559,9 @@ function updateTable() {
   time = 0;
   document.getElementById('dn-information').innerHTML = 'Please submit your information...';
 }
+
+//RUN THE PROGRAM
+loop()
 
 /*
 NOTE:
@@ -542,4 +589,14 @@ NOTE:
   6. destination Y-position
   7. draw() function
   8. update() function
+
+7. Debugging:
+  a. window.AddEventListener('keydown', functionHere(), false); not work for canvas in my case
+  b. Check if using the same name for variables, especially between functions and variables
+  c. Know how to construct scrollable table
+  d. Update table as follow: take inputs from user form -> process it -> output to table by creating new row and populate its cells
+  e. if button is inside form tag, it would have submit type by default -> always reset page when we click it
+  f. Know what is keyCode of any key when pressing any key on keyboard
+  g. Should not put tagElement.addEventListener() inside a function (maybe at the local scope of the function, the listeners will be deleted.)
+  h. define function inside object or nested function. A variables of inner functions can use all variables of outside functions but not the other way around.
   */
