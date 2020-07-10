@@ -491,19 +491,19 @@ const medals = {
     if (state.current == state.over) {
       if (score.value <= 5) {
         ctx.drawImage(sprite, this.sX[0], this.sY[0], this.w, this.h, this.dX, this.dY, this.w, this.h);
-        document.getElementById('dn-information').innerHTML = 'You got Stone medal';
+        document.getElementById('dn-information').innerHTML = 'You got Stone medal.';
         //console.log(0)
       }else if (score.value <= 10){
         ctx.drawImage(sprite, this.sX[1], this.sY[1], this.w, this.h, this.dX, this.dY, this.w, this.h);
-        document.getElementById('dn-information').innerHTML = 'You got Bronze medal';
+        document.getElementById('dn-information').innerHTML = 'You got Bronze medal.';
         //console.log(1)
       }else if (score.value <= 15){
         ctx.drawImage(sprite, this.sX[2], this.sY[2], this.w, this.h, this.dX, this.dY, this.w, this.h);
-        document.getElementById('dn-information').innerHTML = 'You got Silver medal'
+        document.getElementById('dn-information').innerHTML = 'You got Silver medal.'
         //console.log(2)
       }else{
         ctx.drawImage(sprite, this.sX[3], this.sY[3], this.w, this.h, this.dX, this.dY, this.w, this.h);
-        document.getElementById('dn-information').innerHTML = 'You got Gold medal'
+        document.getElementById('dn-information').innerHTML = 'You got Gold medal.'
       }
       //console.log('v;evnlw')
       score.isBest();
