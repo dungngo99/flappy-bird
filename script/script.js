@@ -572,6 +572,12 @@ loop()
 
 /*
 NOTE:
+0. Control flow of the program:
+  a. draw() - draw the static position of the images
+  b. update() - change the images' current coordinates to new values
+  c. draw() - draw images with newly updated coordinates
+  -> As we update fast and redraw fast, the images seem to move continuously
+  
 1. drawImage() method take these argument:
   source_X, source_Y,
   source_Width, source_Height,
@@ -594,8 +600,8 @@ NOTE:
   4. width of image
   5. destination X-position
   6. destination Y-position
-  7. draw() function
-  8. update() function
+  7. draw() function (draw the image of this object to the User Interface)
+  8. update() function (update the current object's x&y coordinates)
 
 7. Debugging:
   a. window.AddEventListener('keydown', functionHere(), false); not work for canvas in my case
@@ -605,5 +611,5 @@ NOTE:
   e. if button is inside form tag, it would have submit type by default -> always reset page when we click it
   f. Know what is keyCode of any key when pressing any key on keyboard
   g. Should not put tagElement.addEventListener() inside a function (maybe at the local scope of the function, the listeners will be deleted.)
-  h. define function inside object or nested function. A variables of inner functions can use all variables of outside functions but not the other way around.
+  h. define function inside object or nested function. A variables of inner functions can use all variables of outside functions but not the other way around. (update() or draw() function)
   */
